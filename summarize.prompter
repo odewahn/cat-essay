@@ -1,6 +1,8 @@
 init
-load --fn=cat-essat.txt
+load --fn=cat-essay.txt
 transform --transformation=new-line-split
 prompt --task=summarize.jinja
-squash --group_tag=summary
-dump --source=prompts
+squash --group_tag=summary --order=group_id
+prompt --task=summarize.jinja
+transfer-prompts --to=blocks --group_tag=final
+dump
