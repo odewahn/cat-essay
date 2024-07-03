@@ -1,8 +1,8 @@
 init
 load --fn=cat-essay.txt
 transform --transformation=new-line-split
-prompt --task=summarize.jinja
+prompt --task=summarize.jinja --model=gpt-3.5-turbo
 squash --group_tag=summarized-chunks --order=group_id
-prompt --task=summarize.jinja --persona=pirate.txt
+prompt --task=summarize.jinja
 transfer-prompts --to=blocks --group_tag=final
 dump
